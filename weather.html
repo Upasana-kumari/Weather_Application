@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="weather.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <div class="background"></div>
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <header>
+
+            <h1>
+                <i class="fa-solid fa-cloud-sun"></i>
+                Weather Dashboard
+            </h1>
+
+            <button id="themeBtn">
+                🌙
+            </button>
+
+        </header>
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name...">
+
+            <button id="searchBtn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+            <button id="locationBtn">
+
+                <i class="fa-solid fa-location-crosshairs"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Loading -->
+
+        <div id="loader" class="loader">
+
+            Loading Weather...
+
+        </div>
+
+        <!-- Weather Card -->
+
+        <div class="weather-card">
+
+            <h2 id="cityName">
+
+                New Delhi
+
+            </h2>
+
+            <p id="dateTime">
+
+                Friday, 8:30 PM
+
+            </p>
+
+            <img
+                id="weatherIcon"
+                src="https://openweathermap.org/img/wn/01d@2x.png">
+
+            <h1 id="temperature">
+
+                30°C
+
+            </h1>
+
+            <h3 id="condition">
+
+                Clear Sky
+
+            </h3>
+
+        </div>
+
+        <!-- Weather Details -->
+
+        <div class="details">
+
+            <div class="detail-card">
+
+                <i class="fa-solid fa-droplet"></i>
+
+                <h3>Humidity</h3>
+
+                <p id="humidity">
+
+                    65%
+
+                </p>
+
+            </div>
+
+            <div class="detail-card">
+
+                <i class="fa-solid fa-wind"></i>
+
+                <h3>Wind</h3>
+
+                <p id="wind">
+
+                    10 km/h
+
+                </p>
+
+            </div>
+
+            <div class="detail-card">
+
+                <i class="fa-solid fa-eye"></i>
+
+                <h3>Visibility</h3>
+
+                <p id="visibility">
+
+                    8 km
+
+                </p>
+
+            </div>
+
+            <div class="detail-card">
+
+                <i class="fa-solid fa-temperature-half"></i>
+
+                <h3>Feels Like</h3>
+
+                <p id="feels">
+
+                    32°C
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Sunrise Sunset -->
+
+        <div class="sun-section">
+
+            <div class="sun-card">
+
+                🌅
+
+                <h3>Sunrise</h3>
+
+                <p id="sunrise">
+
+                    5:42 AM
+
+                </p>
+
+            </div>
+
+            <div class="sun-card">
+
+                🌇
+
+                <h3>Sunset</h3>
+
+                <p id="sunset">
+
+                    6:58 PM
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Forecast -->
+
+        <section class="forecast">
+
+            <h2>
+
+                5-Day Forecast
+
+            </h2>
+
+            <div id="forecastContainer">
+
+                <!-- JavaScript will generate forecast cards -->
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="weather.js"></script>
+
+</body>
+
+</html>
