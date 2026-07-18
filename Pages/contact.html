@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Get In Touch</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        
+        .contact-container{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            margin-bottom:80px;
+        }
+        
+        /* Contact Form */
+        
+        .contact-form-section h2{
+            font-size:36px;
+            margin-bottom:15px;
+        }
+        
+        .contact-form-section p{
+            color:#ddd;
+            margin-bottom:35px;
+            line-height:28px;
+        }
+        
+        .form-wrapper{
+            background:rgba(255,255,255,.08);
+            backdrop-filter:blur(12px);
+            border-radius:20px;
+            padding:40px;
+            border:1px solid rgba(255,217,61,.2);
+        }
+        
+        .form-group{
+            margin-bottom:25px;
+        }
+        
+        .form-group label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:500;
+            font-size:14px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select{
+            width:100%;
+            padding:12px 15px;
+            background:rgba(255,255,255,.1);
+            border:1px solid rgba(255,255,255,.2);
+            border-radius:8px;
+            color:#fff;
+            font-family:'Poppins',sans-serif;
+            font-size:14px;
+            transition:.3s;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder{
+            color:rgba(255,255,255,.5);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus{
+            outline:none;
+            background:rgba(255,255,255,.15);
+            border-color:#FFD93D;
+            box-shadow:0 0 10px rgba(255,217,61,.3);
+        }
+        
+        .form-group textarea{
+            resize:vertical;
+            min-height:150px;
+        }
+        
+        .form-group select{
+            appearance:none;
+            background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat:no-repeat;
+            background-position:right 10px center;
+            background-size:20px;
+            padding-right:40px;
+        }
+        
+        .form-row{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+        
+        .form-row .form-group{
+            margin-bottom:25px;
+        }
+        
+        .submit-btn{
+            width:100%;
+            padding:15px;
+            background:#FFD93D;
+            color:#222;
+            border:none;
+            border-radius:8px;
+            font-weight:600;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+            font-family:'Poppins',sans-serif;
+        }
+        
+        .submit-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 10px 25px rgba(255,217,61,.4);
+        }
+        
+        /* Contact Info */
+        
+        .contact-info-section h2{
+            font-size:36px;
+            margin-bottom:35px;
+        }
+        
+        .contact-info-item{
+            background:rgba(255,255,255,.08);
+            border-radius:15px;
+            padding:30px;
+            margin-bottom:25px;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.3s;
+        }
+        
+        .contact-info-item:hover{
+            transform:translateX(10px);
+            border-color:#FFD93D;
+        }
+        
+        .info-icon{
+            width:60px;
+            height:60px;
+            background:rgba(255,217,61,.2);
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:15px;
+            font-size:28px;
+            color:#FFD93D;
+        }
+        
+        .info-title{
+            font-size:18px;
+            font-weight:600;
+            margin-bottom:8px;
+        }
+        
+        .info-text{
+            color:#ddd;
+            font-size:15px;
+            line-height:26px;
+        }
+        
+        .info-text a{
+            color:#FFD93D;
+            text-decoration:none;
+            transition:.3s;
+        }
+        
+        .info-text a:hover{
+            text-decoration:underline;
+        }
+        
+        /* Office Locations */
+        
+        .offices-section{
+            margin-top:80px;
+        }
+        
+        .offices-heading{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        
+        .offices-heading h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+        
+        .offices-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
+        
+        .office-card{
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            padding:40px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.4s;
+        }
+        
+        .office-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 20px 35px rgba(0,0,0,.3);
+        }
+        
+        .office-icon{
+            font-size:50px;
+            color:#FFD93D;
+            margin-bottom:20px;
+        }
+        
+        .office-card h3{
+            font-size:22px;
+            margin-bottom:15px;
+        }
+        
+        .office-card p{
+            color:#ddd;
+            line-height:26px;
+            margin-bottom:15px;
+        }
+        
+        .office-card .office-phone,
+        .office-card .office-email{
+            font-size:14px;
+            margin-bottom:8px;
+        }
+        
+        .office-card .office-phone a,
+        .office-card .office-email a{
+            color:#FFD93D;
+            text-decoration:none;
+            transition:.3s;
+        }
+        
+        .office-card .office-phone a:hover,
+        .office-card .office-email a:hover{
+            text-decoration:underline;
+        }
+        
+        /* Social Connect */
+        
+        .social-section{
+            text-align:center;
+            padding:60px 8%;
+            margin-top:60px;
+            background:rgba(255,255,255,.05);
+            border-radius:20px;
+        }
+        
+        .social-section h2{
+            font-size:36px;
+            margin-bottom:15px;
+        }
+        
+        .social-section p{
+            color:#ddd;
+            margin-bottom:35px;
+        }
+        
+        .social-icons-large{
+            display:flex;
+            gap:20px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+        
+        .social-icon-btn{
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            background:rgba(255,217,61,.2);
+            border:2px solid #FFD93D;
+            color:#FFD93D;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:24px;
+            transition:.3s;
+            text-decoration:none;
+        }
+        
+        .social-icon-btn:hover{
+            background:#FFD93D;
+            color:#222;
+            transform:translateY(-5px);
+        }
+        
+        /* FAQ */
+        
+        .faq-section{
+            margin-bottom:80px;
+        }
+        
+        .faq-heading{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        
+        .faq-heading h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+        
+        .faq-container{
+            max-width:900px;
+            margin:0 auto;
+        }
+        
+        .faq-item{
+            background:rgba(255,255,255,.08);
+            border-radius:12px;
+            margin-bottom:15px;
+            border:1px solid rgba(255,217,61,.2);
+            overflow:hidden;
+            transition:.3s;
+        }
+        
+        .faq-question{
+            padding:20px;
+            cursor:pointer;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            font-weight:600;
+            transition:.3s;
+        }
+        
+        .faq-item:hover .faq-question{
+            background:rgba(255,217,61,.1);
+        }
+        
+        .faq-icon{
+            color:#FFD93D;
+            font-size:20px;
+            transition:.3s;
+        }
+        
+        .faq-item.active .faq-icon{
+            transform:rotate(180deg);
+        }
+        
+        .faq-answer{
+            max-height:0;
+            overflow:hidden;
+            transition:.3s ease;
+            padding:0 20px;
+        }
+        
+        .faq-item.active .faq-answer{
+            max-height:500px;
+            padding:0 20px 20px;
+        }
+        
+        .faq-answer p{
+            color:#ddd;
+            line-height:26px;
+        }
+        
+        /* Responsive */
+        
+        @media(max-width:992px){
+        
+            .contact-container{
+                grid-template-columns:1fr;
+                gap:40px;
+            }
+            
+            .offices-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+            
+            .form-row{
+                grid-template-columns:1fr;
+                gap:20px;
+            }
+            
+            .contact-info-section h2,
+            .contact-form-section h2{
+                font-size:28px;
+            }
+        
+        }
+        
+        @media(max-width:600px){
+        
+            .offices-grid{
+                grid-template-columns:1fr;
+            }
+            
+            .social-icons-large{
+                gap:15px;
+            }
+            
+            .social-icon-btn{
+                width:50px;
+                height:50px;
+                font-size:20px;
+            }
+            
+            .contact-form-section h2,
+            .contact-info-section h2,
+            .faq-heading h2,
+            .offices-heading h2,
+            .social-section h2{
+                font-size:24px;
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-rocket"></i> Brand
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Get In Touch</h1>
+        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="section-padding">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <p>Fill out the form below and our team will get back to you within 24 hours.</p>
+                
+                <form class="form-wrapper" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="development">Web Development</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your project..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-section">
+                <h2>Contact Information</h2>
+                
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-title">Address</div>
+                    <div class="info-text">
+                        123 Business Street<br>
+                        New York, NY 10001<br>
+                        United States
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-title">Phone</div>
+                    <div class="info-text">
+                        <a href="tel:+12125551234">+1 (212) 555-1234</a><br>
+                        <a href="tel:+12125555678">+1 (212) 555-5678</a>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-title">Email</div>
+                    <div class="info-text">
+                        <a href="mailto:info@company.com">info@company.com</a><br>
+                        <a href="mailto:support@company.com">support@company.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-title">Business Hours</div>
+                    <div class="info-text">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM<br>
+                        Sunday: Closed
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="offices-section section-padding">
+        <div class="offices-heading">
+            <h2>Our Offices</h2>
+            <p>Visit us at one of our locations around the world</p>
+        </div>
+        <div class="offices-grid">
+            <div class="office-card">
+                <div class="office-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>New York</h3>
+                <p>123 Business Street<br>New York, NY 10001</p>
+                <div class="office-phone">
+                    <a href="tel:+12125551234">+1 (212) 555-1234</a>
+                </div>
+                <div class="office-email">
+                    <a href="mailto:ny@company.com">ny@company.com</a>
+                </div>
+            </div>
+            <div class="office-card">
+                <div class="office-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>San Francisco</h3>
+                <p>456 Tech Avenue<br>San Francisco, CA 94105</p>
+                <div class="office-phone">
+                    <a href="tel:+14155551234">+1 (415) 555-1234</a>
+                </div>
+                <div class="office-email">
+                    <a href="mailto:sf@company.com">sf@company.com</a>
+                </div>
+            </div>
+            <div class="office-card">
+                <div class="office-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>London</h3>
+                <p>789 Innovation Road<br>London, UK EC1A 1BB</p>
+                <div class="office-phone">
+                    <a href="tel:+442071831234">+44 (207) 183-1234</a>
+                </div>
+                <div class="office-email">
+                    <a href="mailto:london@company.com">london@company.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding">
+        <div class="faq-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is your response time?</span>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our phone line for immediate assistance.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer free consultations?</span>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer a complimentary 30-minute consultation to discuss your project needs and goals. Contact us to schedule your free consultation today.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What payment methods do you accept?</span>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards, bank transfers, and wire payments. We can also discuss custom payment plans based on your project requirements.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can you provide custom solutions?</span>
+                    <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We specialize in creating custom solutions tailored to your specific business needs. Get in touch with our team to discuss your unique requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Connect Section -->
+    <section class="social-section">
+        <h2>Connect With Us</h2>
+        <p>Follow us on social media for updates, news, and special offers</p>
+        <div class="social-icons-large">
+            <a href="#" class="social-icon-btn" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-btn" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FAQ Script -->
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

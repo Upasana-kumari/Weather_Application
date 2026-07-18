@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Our Story & Mission</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About Page Specific Styles */
+        
+        .about-hero{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:center;
+            margin-bottom:80px;
+        }
+        
+        .about-hero-content h1{
+            font-size:44px;
+            margin-bottom:20px;
+            line-height:55px;
+        }
+        
+        .about-hero-content p{
+            font-size:16px;
+            color:#ddd;
+            line-height:32px;
+            margin-bottom:20px;
+        }
+        
+        .about-hero-image{
+            width:100%;
+            height:400px;
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid rgba(255,217,61,.3);
+        }
+        
+        .about-hero-image i{
+            font-size:120px;
+            color:#FFD93D;
+        }
+        
+        /* Mission & Vision */
+        
+        .mission-vision{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:40px;
+            margin-bottom:80px;
+        }
+        
+        .mission-card,
+        .vision-card{
+            background:rgba(255,255,255,.08);
+            border:1px solid rgba(255,217,61,.3);
+            border-radius:20px;
+            padding:40px;
+            text-align:center;
+        }
+        
+        .mission-card i,
+        .vision-card i{
+            font-size:60px;
+            color:#FFD93D;
+            margin-bottom:20px;
+        }
+        
+        .mission-card h3,
+        .vision-card h3{
+            font-size:28px;
+            margin-bottom:20px;
+        }
+        
+        .mission-card p,
+        .vision-card p{
+            color:#ddd;
+            line-height:28px;
+        }
+        
+        /* Values Section */
+        
+        .values-container{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:25px;
+        }
+        
+        .value-card{
+            background:rgba(255,255,255,.08);
+            border-radius:15px;
+            padding:30px 20px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.3s;
+        }
+        
+        .value-card:hover{
+            transform:translateY(-8px);
+            border-color:#FFD93D;
+            box-shadow:0 15px 30px rgba(255,217,61,.2);
+        }
+        
+        .value-card i{
+            font-size:50px;
+            color:#FFD93D;
+            margin-bottom:15px;
+        }
+        
+        .value-card h4{
+            font-size:18px;
+            margin-bottom:10px;
+        }
+        
+        .value-card p{
+            font-size:14px;
+            color:#ddd;
+            line-height:22px;
+        }
+        
+        /* Team Section */
+        
+        .team-container{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:30px;
+        }
+        
+        .team-member{
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            overflow:hidden;
+            transition:.4s;
+            border:1px solid rgba(255,217,61,.2);
+        }
+        
+        .team-member:hover{
+            transform:translateY(-10px);
+            box-shadow:0 20px 35px rgba(0,0,0,.3);
+        }
+        
+        .member-image{
+            width:100%;
+            height:250px;
+            background:linear-gradient(135deg,rgba(255,217,61,.3),rgba(255,217,61,.1));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:80px;
+        }
+        
+        .member-info{
+            padding:25px;
+            text-align:center;
+        }
+        
+        .member-info h4{
+            font-size:20px;
+            margin-bottom:5px;
+        }
+        
+        .member-info p{
+            color:#FFD93D;
+            font-size:14px;
+            margin-bottom:15px;
+        }
+        
+        .member-info .member-description{
+            color:#ddd;
+            font-size:13px;
+            line-height:20px;
+        }
+        
+        /* Stats Section */
+        
+        .stats{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:30px;
+            margin-bottom:80px;
+        }
+        
+        .stat-box{
+            background:rgba(255,255,255,.08);
+            border-radius:15px;
+            padding:30px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+        }
+        
+        .stat-number{
+            font-size:48px;
+            font-weight:800;
+            color:#FFD93D;
+            margin-bottom:10px;
+        }
+        
+        .stat-label{
+            font-size:16px;
+            color:#ddd;
+        }
+        
+        /* Timeline */
+        
+        .timeline{
+            position:relative;
+            padding:40px 0;
+        }
+        
+        .timeline::before{
+            content:'';
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            width:2px;
+            height:100%;
+            background:linear-gradient(to bottom,#FFD93D,transparent);
+        }
+        
+        .timeline-items{
+            position:relative;
+        }
+        
+        .timeline-item{
+            margin-bottom:50px;
+            width:calc(50% - 25px);
+        }
+        
+        .timeline-item:nth-child(odd){
+            margin-left:0;
+            text-align:right;
+            padding-right:50px;
+        }
+        
+        .timeline-item:nth-child(even){
+            margin-left:calc(50% + 25px);
+            text-align:left;
+            padding-left:50px;
+        }
+        
+        .timeline-content{
+            background:rgba(255,255,255,.08);
+            padding:25px;
+            border-radius:10px;
+            border:1px solid rgba(255,217,61,.2);
+        }
+        
+        .timeline-year{
+            color:#FFD93D;
+            font-weight:700;
+            font-size:18px;
+            margin-bottom:8px;
+        }
+        
+        .timeline-content p{
+            color:#ddd;
+            line-height:24px;
+        }
+        
+        .timeline-dot{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            width:16px;
+            height:16px;
+            background:#FFD93D;
+            border:3px solid #0f2027;
+            border-radius:50%;
+            top:0;
+        }
+        
+        /* Responsive */
+        
+        @media(max-width:992px){
+        
+            .about-hero{
+                grid-template-columns:1fr;
+                gap:40px;
+            }
+            
+            .mission-vision{
+                grid-template-columns:1fr;
+            }
+            
+            .values-container{
+                grid-template-columns:repeat(2,1fr);
+            }
+            
+            .team-container{
+                grid-template-columns:repeat(2,1fr);
+            }
+            
+            .stats{
+                grid-template-columns:repeat(2,1fr);
+            }
+            
+            .timeline::before{
+                left:20px;
+            }
+            
+            .timeline-item{
+                width:calc(100% - 60px);
+                margin-left:0 !important;
+                padding-left:60px !important;
+                padding-right:0 !important;
+                text-align:left !important;
+            }
+            
+            .timeline-dot{
+                left:0;
+            }
+        
+        }
+        
+        @media(max-width:600px){
+        
+            .values-container,
+            .team-container,
+            .stats{
+                grid-template-columns:1fr;
+            }
+            
+            .about-hero-image{
+                height:300px;
+            }
+            
+            .about-hero-image i{
+                font-size:80px;
+            }
+            
+            .stat-number{
+                font-size:36px;
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-rocket"></i> Brand
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>About Our Company</h1>
+        <p>Discover our journey, mission, and the team behind our success</p>
+    </section>
+
+    <!-- About Hero -->
+    <section class="section-padding">
+        <div class="about-hero">
+            <div class="about-hero-content">
+                <h2>Our Story</h2>
+                <p>
+                    Founded in 2015, our company started with a simple vision: to revolutionize the way people interact with technology. What began as a small team of passionate developers and designers has grown into a global organization serving thousands of clients worldwide.
+                </p>
+                <p>
+                    We believe in the power of innovation, creativity, and dedication to excellence. Every product we create, every service we provide, and every interaction we have is driven by our commitment to making a meaningful impact.
+                </p>
+                <p>
+                    Today, we're proud to be recognized as industry leaders, but our journey is far from over. We continue to push boundaries, challenge conventions, and strive to create solutions that matter.
+                </p>
+            </div>
+            <div class="about-hero-image">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding">
+        <div class="section-heading">
+            <h2>Mission & Vision</h2>
+        </div>
+        <div class="mission-vision">
+            <div class="mission-card">
+                <i class="fas fa-target"></i>
+                <h3>Our Mission</h3>
+                <p>To empower businesses and individuals by providing innovative, reliable, and user-centric solutions that drive growth and create positive change in the digital world.</p>
+            </div>
+            <div class="vision-card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be the global leader in digital innovation, recognized for our commitment to excellence, integrity, and the transformative impact of our work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section-padding">
+        <div class="section-heading">
+            <h2>Our Core Values</h2>
+            <p>These principles guide everything we do</p>
+        </div>
+        <div class="values-container">
+            <div class="value-card">
+                <i class="fas fa-handshake"></i>
+                <h4>Integrity</h4>
+                <p>We conduct business with honesty, transparency, and ethical standards in all our dealings.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Innovation</h4>
+                <p>We embrace creativity and continuously seek new ways to improve and evolve our solutions.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h4>Collaboration</h4>
+                <p>We believe in teamwork and working closely with our clients to achieve their goals.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-star"></i>
+                <h4>Excellence</h4>
+                <p>We're committed to delivering the highest quality products and services to our customers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section-padding">
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding">
+        <div class="section-heading">
+            <h2>Meet Our Team</h2>
+            <p>Talented professionals dedicated to your success</p>
+        </div>
+        <div class="team-container">
+            <div class="team-member">
+                <div class="member-image">👨‍💼</div>
+                <div class="member-info">
+                    <h4>John Smith</h4>
+                    <p>CEO & Founder</p>
+                    <p class="member-description">Visionary leader with 15+ years of industry experience.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">👩‍💻</div>
+                <div class="member-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>CTO</p>
+                    <p class="member-description">Tech innovator passionate about cutting-edge solutions.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">👨‍🎨</div>
+                <div class="member-info">
+                    <h4>Michael Chen</h4>
+                    <p>Design Director</p>
+                    <p class="member-description">Creative strategist focused on user experience excellence.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">👩‍💼</div>
+                <div class="member-info">
+                    <h4>Emily Davis</h4>
+                    <p>Operations Manager</p>
+                    <p class="member-description">Efficiency expert ensuring seamless business operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding">
+        <div class="section-heading">
+            <h2>Our Journey</h2>
+            <p>Milestones that shaped our success</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <p>Company founded by a team of passionate innovators with a dream to change the industry.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <p>Reached 100+ clients milestone and expanded our team to 15 dedicated professionals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <p>Launched our flagship product that won multiple industry awards and recognition.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <p>Reached 500+ clients globally and established offices in 5 different countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding text-center">
+        <h2>Join Our Journey</h2>
+        <p style="color:#ddd; margin:20px 0 35px; font-size:16px;">Ready to be part of something extraordinary?</p>
+        <a href="contact.html" class="primary-btn">Get In Touch</a>
+        <a href="#" class="secondary-btn" style="margin-left:15px;">Learn More</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../index.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

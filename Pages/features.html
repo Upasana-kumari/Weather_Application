@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Explore Our Capabilities</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Features Page Specific Styles */
+        
+        /* Main Features Grid */
+        
+        .main-features{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+            margin-bottom:80px;
+        }
+        
+        .feature-card-main{
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            padding:40px 30px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.4s;
+        }
+        
+        .feature-card-main:hover{
+            transform:translateY(-15px);
+            box-shadow:0 25px 45px rgba(0,0,0,.3);
+            border-color:#FFD93D;
+        }
+        
+        .feature-card-main i{
+            font-size:60px;
+            color:#FFD93D;
+            margin-bottom:20px;
+            display:block;
+        }
+        
+        .feature-card-main h3{
+            font-size:22px;
+            margin-bottom:15px;
+        }
+        
+        .feature-card-main p{
+            color:#ddd;
+            line-height:26px;
+            margin-bottom:20px;
+        }
+        
+        .feature-card-main .learn-more{
+            color:#FFD93D;
+            text-decoration:none;
+            font-weight:600;
+            transition:.3s;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+        }
+        
+        .feature-card-main .learn-more:hover{
+            gap:12px;
+        }
+        
+        /* Detailed Features Section */
+        
+        .detailed-features{
+            margin-bottom:80px;
+        }
+        
+        .feature-detail{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:center;
+            margin-bottom:80px;
+        }
+        
+        .feature-detail:nth-child(even) .feature-image{
+            order:-1;
+        }
+        
+        .feature-detail-content h3{
+            font-size:32px;
+            margin-bottom:20px;
+        }
+        
+        .feature-detail-content p{
+            color:#ddd;
+            line-height:28px;
+            margin-bottom:20px;
+            font-size:15px;
+        }
+        
+        .feature-benefits{
+            list-style:none;
+            margin:30px 0;
+        }
+        
+        .feature-benefits li{
+            padding:12px 0;
+            padding-left:35px;
+            position:relative;
+            color:#ddd;
+            line-height:26px;
+        }
+        
+        .feature-benefits li::before{
+            content:'\f05d';
+            font-family:'Font Awesome 6 Free';
+            font-weight:900;
+            position:absolute;
+            left:0;
+            color:#FFD93D;
+        }
+        
+        .feature-image{
+            width:100%;
+            height:400px;
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid rgba(255,217,61,.3);
+            font-size:140px;
+            color:rgba(255,217,61,.3);
+        }
+        
+        /* Comparison Table */
+        
+        .comparison-section{
+            margin-bottom:80px;
+        }
+        
+        .comparison-heading{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        
+        .comparison-heading h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+        
+        .comparison-table-wrapper{
+            overflow-x:auto;
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            border:1px solid rgba(255,217,61,.2);
+            padding:30px;
+        }
+        
+        .comparison-table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        
+        .comparison-table th{
+            background:rgba(255,217,61,.1);
+            padding:20px;
+            text-align:left;
+            font-weight:600;
+            border-bottom:2px solid rgba(255,217,61,.3);
+            color:#FFD93D;
+        }
+        
+        .comparison-table td{
+            padding:18px 20px;
+            border-bottom:1px solid rgba(255,255,255,.1);
+            color:#ddd;
+        }
+        
+        .comparison-table tr:last-child td{
+            border-bottom:none;
+        }
+        
+        .feature-check{
+            color:#FFD93D;
+            font-weight:600;
+        }
+        
+        .feature-cross{
+            color:#999;
+        }
+        
+        /* Pricing Plans (with features) */
+        
+        .pricing-section{
+            margin-bottom:80px;
+        }
+        
+        .pricing-heading{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        
+        .pricing-heading h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+        
+        .pricing-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
+        
+        .pricing-card{
+            background:rgba(255,255,255,.08);
+            border-radius:20px;
+            padding:40px;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.4s;
+            position:relative;
+        }
+        
+        .pricing-card.popular{
+            border-color:#FFD93D;
+            transform:scale(1.05);
+        }
+        
+        .pricing-badge{
+            position:absolute;
+            top:-12px;
+            right:30px;
+            background:#FFD93D;
+            color:#222;
+            padding:8px 16px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:700;
+        }
+        
+        .pricing-card:hover{
+            box-shadow:0 25px 45px rgba(0,0,0,.3);
+        }
+        
+        .pricing-name{
+            font-size:24px;
+            font-weight:700;
+            margin-bottom:15px;
+        }
+        
+        .pricing-price{
+            font-size:48px;
+            font-weight:800;
+            color:#FFD93D;
+            margin-bottom:10px;
+        }
+        
+        .pricing-period{
+            color:#ddd;
+            margin-bottom:30px;
+            font-size:14px;
+        }
+        
+        .pricing-description{
+            color:#ddd;
+            margin-bottom:30px;
+            line-height:24px;
+            font-size:14px;
+        }
+        
+        .pricing-button{
+            width:100%;
+            padding:12px;
+            background:#FFD93D;
+            color:#222;
+            border:none;
+            border-radius:8px;
+            font-weight:600;
+            cursor:pointer;
+            transition:.3s;
+            margin-bottom:30px;
+            font-family:'Poppins',sans-serif;
+        }
+        
+        .pricing-button:hover{
+            transform:translateY(-2px);
+            box-shadow:0 10px 25px rgba(255,217,61,.4);
+        }
+        
+        .pricing-card.popular .pricing-button{
+            background:#FFD93D;
+        }
+        
+        .pricing-features{
+            list-style:none;
+        }
+        
+        .pricing-features li{
+            padding:12px 0;
+            border-bottom:1px solid rgba(255,255,255,.1);
+            color:#ddd;
+            font-size:14px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        
+        .pricing-features li::before{
+            content:'\f05d';
+            font-family:'Font Awesome 6 Free';
+            font-weight:900;
+            color:#FFD93D;
+            font-size:12px;
+        }
+        
+        .pricing-features li.not-included{
+            color:#999;
+        }
+        
+        .pricing-features li.not-included::before{
+            content:'\f057';
+            color:#999;
+        }
+        
+        /* Integration Section */
+        
+        .integrations-section{
+            margin-bottom:80px;
+        }
+        
+        .integrations-heading{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        
+        .integrations-heading h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+        
+        .integrations-grid{
+            display:grid;
+            grid-template-columns:repeat(6,1fr);
+            gap:20px;
+        }
+        
+        .integration-item{
+            background:rgba(255,255,255,.08);
+            border-radius:15px;
+            padding:25px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+            transition:.3s;
+        }
+        
+        .integration-item:hover{
+            transform:translateY(-8px);
+            border-color:#FFD93D;
+        }
+        
+        .integration-icon{
+            font-size:45px;
+            margin-bottom:15px;
+            display:block;
+        }
+        
+        .integration-name{
+            font-size:14px;
+            font-weight:600;
+        }
+        
+        /* CTA Section */
+        
+        .features-cta{
+            background:rgba(255,255,255,.05);
+            border-radius:20px;
+            padding:60px 40px;
+            text-align:center;
+            border:1px solid rgba(255,217,61,.2);
+        }
+        
+        .features-cta h2{
+            font-size:36px;
+            margin-bottom:15px;
+        }
+        
+        .features-cta p{
+            color:#ddd;
+            margin-bottom:30px;
+            font-size:16px;
+        }
+        
+        /* Responsive */
+        
+        @media(max-width:992px){
+        
+            .feature-detail{
+                grid-template-columns:1fr;
+                gap:40px;
+            }
+            
+            .pricing-grid{
+                grid-template-columns:1fr;
+            }
+            
+            .pricing-card.popular{
+                transform:scale(1);
+            }
+            
+            .integrations-grid{
+                grid-template-columns:repeat(3,1fr);
+            }
+            
+            .feature-detail-content h3{
+                font-size:28px;
+            }
+        
+        }
+        
+        @media(max-width:600px){
+        
+            .main-features{
+                grid-template-columns:1fr;
+            }
+            
+            .integrations-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+            
+            .comparison-table-wrapper{
+                padding:15px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td{
+                padding:12px 10px;
+                font-size:13px;
+            }
+            
+            .pricing-price{
+                font-size:36px;
+            }
+            
+            .feature-detail-content h3{
+                font-size:22px;
+            }
+            
+            .features-cta h2{
+                font-size:28px;
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-rocket"></i> Brand
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Powerful Features</h1>
+        <p>Discover everything you need to succeed</p>
+    </section>
+
+    <!-- Main Features Grid -->
+    <section class="section-padding">
+        <div class="section-heading">
+            <h2>Core Features</h2>
+            <p>Essential tools to grow your business</p>
+        </div>
+        <div class="main-features">
+            <div class="feature-card-main">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Experience blazing-fast performance with our optimized infrastructure built for speed.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card-main">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure</h3>
+                <p>Enterprise-grade security to protect your data with industry-leading encryption standards.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card-main">
+                <i class="fas fa-expand-arrows-alt"></i>
+                <h3>Scalable</h3>
+                <p>Grow without limits. Our platform scales seamlessly with your business needs.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card-main">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Friendly</h3>
+                <p>Access everything on any device. Responsive design that works perfectly everywhere.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card-main">
+                <i class="fas fa-cogs"></i>
+                <h3>Easy Integration</h3>
+                <p>Seamlessly integrate with your existing tools and workflows in minutes.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-card-main">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Dedicated support team available around the clock to help you succeed.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features -->
+    <section class="detailed-features section-padding">
+        <div class="section-heading mb-60">
+            <h2>Feature Deep Dive</h2>
+        </div>
+
+        <div class="feature-detail">
+            <div class="feature-detail-content">
+                <h3>Advanced Analytics</h3>
+                <p>Gain comprehensive insights into your business performance with our powerful analytics engine. Track metrics that matter, visualize trends, and make data-driven decisions.</p>
+                <ul class="feature-benefits">
+                    <li>Real-time data visualization</li>
+                    <li>Custom report generation</li>
+                    <li>Predictive analytics</li>
+                    <li>API access for data export</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </div>
+
+        <div class="feature-detail">
+            <div class="feature-detail-content">
+                <h3>Collaboration Tools</h3>
+                <p>Work together seamlessly with your team. Share files, communicate in real-time, and keep everyone on the same page throughout your projects.</p>
+                <ul class="feature-benefits">
+                    <li>Real-time collaboration</li>
+                    <li>Team chat and messaging</li>
+                    <li>File sharing and storage</li>
+                    <li>Task management</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+
+        <div class="feature-detail">
+            <div class="feature-detail-content">
+                <h3>Automation Engine</h3>
+                <p>Automate repetitive tasks and streamline your workflows. Save time and reduce errors with intelligent automation built for your business processes.</p>
+                <ul class="feature-benefits">
+                    <li>Workflow automation</li>
+                    <li>Scheduled tasks</li>
+                    <li>Custom triggers and actions</li>
+                    <li>Process optimization</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <i class="fas fa-robot"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section section-padding">
+        <div class="comparison-heading">
+            <h2>Plan Comparison</h2>
+            <p>Choose the perfect plan for your needs</p>
+        </div>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Starter</th>
+                        <th>Professional</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Users</td>
+                        <td class="feature-check">Up to 3</td>
+                        <td class="feature-check">Up to 10</td>
+                        <td class="feature-check">Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td class="feature-check">10 GB</td>
+                        <td class="feature-check">100 GB</td>
+                        <td class="feature-check">Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Advanced Analytics</td>
+                        <td class="feature-cross">✗</td>
+                        <td class="feature-check">✓</td>
+                        <td class="feature-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>API Access</td>
+                        <td class="feature-cross">✗</td>
+                        <td class="feature-check">✓</td>
+                        <td class="feature-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Priority Support</td>
+                        <td class="feature-cross">✗</td>
+                        <td class="feature-check">✓</td>
+                        <td class="feature-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Integrations</td>
+                        <td class="feature-cross">✗</td>
+                        <td class="feature-cross">✗</td>
+                        <td class="feature-check">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-section section-padding">
+        <div class="pricing-heading">
+            <h2>Simple Pricing</h2>
+            <p>Transparent pricing that scales with your business</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-name">Starter</h3>
+                <div class="pricing-price">$29</div>
+                <div class="pricing-period">per month</div>
+                <p class="pricing-description">Perfect for getting started</p>
+                <button class="pricing-button">Get Started</button>
+                <ul class="pricing-features">
+                    <li>Up to 3 users</li>
+                    <li>10 GB storage</li>
+                    <li>Basic support</li>
+                    <li class="not-included">Advanced analytics</li>
+                    <li class="not-included">API access</li>
+                </ul>
+            </div>
+            <div class="pricing-card popular">
+                <span class="pricing-badge">POPULAR</span>
+                <h3 class="pricing-name">Professional</h3>
+                <div class="pricing-price">$99</div>
+                <div class="pricing-period">per month</div>
+                <p class="pricing-description">For growing teams</p>
+                <button class="pricing-button">Get Started</button>
+                <ul class="pricing-features">
+                    <li>Up to 10 users</li>
+                    <li>100 GB storage</li>
+                    <li>Priority support</li>
+                    <li>Advanced analytics</li>
+                    <li>API access</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h3 class="pricing-name">Enterprise</h3>
+                <div class="pricing-price">Custom</div>
+                <div class="pricing-period">contact sales</div>
+                <p class="pricing-description">For enterprises</p>
+                <button class="pricing-button">Contact Sales</button>
+                <ul class="pricing-features">
+                    <li>Unlimited users</li>
+                    <li>Unlimited storage</li>
+                    <li>24/7 dedicated support</li>
+                    <li>Advanced analytics</li>
+                    <li>Custom integrations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations-section section-padding">
+        <div class="integrations-heading">
+            <h2>Integrations</h2>
+            <p>Connect with tools you love</p>
+        </div>
+        <div class="integrations-grid">
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fab fa-slack"></i></span>
+                <div class="integration-name">Slack</div>
+            </div>
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fab fa-github"></i></span>
+                <div class="integration-name">GitHub</div>
+            </div>
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fas fa-envelope"></i></span>
+                <div class="integration-name">Gmail</div>
+            </div>
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fab fa-stripe"></i></span>
+                <div class="integration-name">Stripe</div>
+            </div>
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fas fa-cloud"></i></span>
+                <div class="integration-name">Dropbox</div>
+            </div>
+            <div class="integration-item">
+                <span class="integration-icon"><i class="fab fa-trello"></i></span>
+                <div class="integration-name">Trello</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding">
+        <div class="features-cta">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of companies that are already using our platform to succeed.</p>
+            <a href="#" class="primary-btn">Start Free Trial</a>
+            <a href="#" class="secondary-btn" style="margin-left:15px;">Book Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
